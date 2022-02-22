@@ -1,0 +1,410 @@
+//====================================================================================================
+.header {
+	position: absolute;
+	&._scroll {
+		.header__wraper {
+			background-color: #ffffff;
+		}
+		.header__wraper {
+			min-height: 80px;
+			@media (max-width: $mobile) {
+				min-height: 50px;
+			}
+		}
+	}
+	&__wraper {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		min-height: 120px;
+		display: flex;
+		align-items: center;
+	}
+
+	&__container {
+		position: relative;
+		width: 100%;
+	}
+
+	&__body {
+		display: flex;
+		align-items: center;
+	}
+
+	&__logo {
+		flex: 0 1 677px;
+		margin: 0 15px 0 0;
+	}
+
+	&__menu {
+		@include adaptiveValueREM("margin-right", 50, 15, 1540, 768, 1);
+		@media (max-width: $mobile) {
+			display: none;
+		}
+	}
+
+	&__language {
+		@include adaptiveValueREM("margin-right", 50, 15, 1540, 768, 1);
+		position: relative;
+		@media (any-hover: hover) {
+			&:hover {
+				.language-btn__select:last-child {
+					opacity: 1;
+					visibility: visible;
+					pointer-events: all;
+					transform: translate(0, 0px);
+				}
+			}
+		}
+		&.active {
+			.language-btn__select:last-child {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+				transform: translate(0, 0px);
+			}
+		}
+	}
+
+	&__request {
+		min-width: 149px;
+		padding: rem(12) rem(15);
+		font-family: "Muller";
+		font-weight: 500;
+		font-size: rem(15);
+		line-height: 1;
+		color: #ffffff;
+		background-color: #232322;
+		transition: all 0.5s ease 0s;
+		margin: 0 15px 0 0;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #000000;
+			}
+		}
+		@media (max-width: $mobile) {
+			display: none;
+		}
+	}
+
+	&__icon-menu {
+		display: block;
+		position: relative;
+		margin-left: auto;
+		min-width: 40px;
+		height: 40px;
+		cursor: pointer;
+		z-index: 5;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid #232322;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				border-color: $hoverColor;
+				span {
+					background-color: $hoverColor;
+				}
+				&::before {
+					background-color: $hoverColor;
+				}
+				&::after {
+					background-color: $hoverColor;
+				}
+			}
+		}
+		span {
+			position: relative;
+			background-color: $darckColor;
+			width: 20px;
+			height: 2px;
+			margin: 0 0 5px 0;
+			left: 2.5px;
+			transition: all 0.5s ease 0s;
+			pointer-events: none;
+		}
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			position: relative;
+			width: 25px;
+			height: 2px;
+			background-color: $darckColor;
+			transition: transform 0.5s ease 0s;
+		}
+		&::before {
+			margin: 0 0 5px 0;
+		}
+		&::after {
+		}
+		&.open {
+			span {
+				left: 0;
+				background-color: #ffffff;
+			}
+			&::before {
+				background-color: #ffffff;
+				transform: scale(0);
+			}
+			&::after {
+				background-color: #ffffff;
+				transform: scale(0);
+			}
+			border-color: #ffffff;
+		}
+	}
+
+	&__burger {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100vh;
+		width: 550px;
+		background-color: #111111;
+		transform: translate(100%, 0);
+		transition: transform 0.3s ease 0s;
+		&.active {
+			transform: translate(0, 0);
+		}
+		@media (max-width: $mobile) {
+			width: 270px;
+		}
+	}
+}
+.menu-header {
+	&__list {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__item {
+		&:not(:last-child) {
+			@include adaptiveValueREM("margin-right", 50, 15, 1540, 768, 1);
+		}
+	}
+
+	&__item-link {
+		font-family: "Muller";
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1;
+		position: relative;
+		color: $darckColor;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+				&::after {
+					background-color: $hoverColor;
+					width: 100%;
+				}
+			}
+		}
+		&::after {
+			content: "";
+			height: 2px;
+			width: 0;
+			background-color: $mainColor;
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			cursor: auto;
+			transition: all 0.3s ease 0s;
+		}
+	}
+}
+.language-btn {
+	&__text {
+		font-family: "Muller";
+		color: $darckColor;
+		font-weight: 500;
+		font-size: rem(18);
+		line-height: 1;
+		margin: 0 8px 0 0;
+		min-width: 23px;
+	}
+
+	&__icon {
+		width: rem(25);
+		height: rem(25);
+		position: relative;
+		top: -2px;
+		&.ru {
+			background-image: url("/img/icons/russia.svg");
+		}
+		&.es {
+			background-image: url("/img/icons/spain.svg");
+		}
+	}
+	&__select {
+		display: flex;
+		align-items: center;
+		transition: all 0.3s ease 0s;
+		cursor: pointer;
+	}
+	&__select:last-child {
+		position: absolute;
+		bottom: -30px;
+		display: flex;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translate(0, 15px);
+		padding: 10px 0 0 0;
+	}
+}
+
+.burger {
+	&__body {
+		height: inherit;
+		color: #ffffff;
+		margin: 140px 0 0 50px;
+		@media (max-width: em(1025)) {
+			margin: 70px 0 0 50px;
+		}
+	}
+
+	&__menu {
+		margin: 0 0 50px 0;
+	}
+
+	&__contacts {
+	}
+
+	&__presentation {
+		font-size: rem(18);
+		line-height: 1;
+		font-weight: 500;
+		transition: all 0.3s ease 0s;
+		cursor: pointer;
+		position: relative;
+		max-width: 205px;
+		&::after {
+			content: "";
+			height: 2px;
+			width: 0%;
+			background-color: $hoverColor;
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+.menu-burger {
+	&__list {
+	}
+
+	&__item {
+		@include adaptiveValueREM("font-size", 35, 25);
+		line-height: math.div(42, 35);
+		text-transform: uppercase;
+		margin: 0 0 em(15, 35) 0;
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+			}
+		}
+	}
+
+	&__item-link {
+	}
+}
+.contacts-burger {
+	&__tittle {
+		font-size: rem(18);
+		margin: 0 0 em(20, 18);
+		line-height: math.div(22, 18);
+	}
+
+	&__contacts {
+		font-size: rem(16);
+	}
+
+	&__address {
+		p {
+			&:first-child {
+				color: #bdbdbd;
+				margin: 0 0 4px 0;
+			}
+		}
+		margin: 0 0 15px 0;
+	}
+
+	&__phone {
+		p {
+			color: #bdbdbd;
+			margin: 0 0 4px 0;
+		}
+		margin: 0 0 15px 0;
+		a {
+			transition: color 0.3s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $hoverColor;
+				}
+			}
+		}
+	}
+
+	&__email {
+		p {
+			color: #bdbdbd;
+			margin: 0 0 4px 0;
+		}
+		margin: 0 0 15px 0;
+		a {
+			transition: color 0.3s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $hoverColor;
+				}
+			}
+		}
+	}
+
+	&__social {
+		display: flex;
+		margin: 0 0 50px 0;
+	}
+}
+.social-burger {
+	&__meta {
+		margin: 0 15px 0 0;
+		transition: color 0.3s ease 0s;
+		font-size: rem(20);
+		min-width: 20px;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+			}
+		}
+	}
+
+	&__instagram {
+		transition: color 0.3s ease 0s;
+		font-size: rem(20);
+		@media (any-hover: hover) {
+			&:hover {
+				color: $hoverColor;
+			}
+		}
+	}
+}
+
+//====================================================================================================
