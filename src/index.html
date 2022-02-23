@@ -10,9 +10,53 @@
 <body>
    <div class="wrapper">
       @@include('html/header.html', {})
-      <main class="page" style="margin-top: 250px;">
-
-
+      <main class="page">
+         <section class="service-menu">
+            <div class="service-menu__container">
+               <div class="service-menu__body">
+                  <div class="service-menu__menu menu-service">
+                     <nav class="menu-service__list">
+                        <ul class="menu-service__items">
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="outdoorAdvertising">наружная реклама</a></li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="polygraphy">полиграфия</a></li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="identity">айдентика</a></li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="smm">смм</a>
+                           </li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="websiteDevelopment">создание сайтов</a></li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="uvPrinting">уф
+                                 печать</a></li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
+                                 data-img="printingOnClothes">печать на одежде</a></li>
+                        </ul>
+                     </nav>
+                     <div class="service-menu__social">
+                        <a href="#" class="social-burger__meta _icon-facebook">
+                        </a>
+                        <a href="#" class="social-burger__instagram _icon-instagram">
+                        </a>
+                     </div>
+                  </div>
+                  <div class="service-menu__images">
+                     <img src="@img/header/Outdoor_advertising.jpg" alt="Outdoor advertising"
+                        data-img="outdoorAdvertising">
+                     <img src="@img/header/polygraphy.jpg" alt="polygraphy" data-img="polygraphy">
+                     <img src="@img/header/identity.jpg" alt="identity" data-img="identity">
+                     <img src="@img/header/smm.jpg" alt="smm" data-img="smm">
+                     <img src="@img/header/website_development.png" alt="website development"
+                        data-img="websiteDevelopment">
+                     <img src="@img/header/UV_printing.jpg" alt="UV printing" data-img="uvPrinting">
+                     <img src="@img/header/printing_on_clothes.jpg" alt="printing on clothes"
+                        data-img="printingOnClothes">
+                  </div>
+               </div>
+            </div>
+         </section>
       </main>
       @@include('html/footer.html', {})
    </div>

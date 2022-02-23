@@ -3,9 +3,9 @@
 //import * as gasArt from './modules/functions.js';
 // console.log(gasArt.block());
 
-import { isWebp } from './modules/functions.js';
+//import { isWebp } from './modules/functions.js';
 
-isWebp();
+//isWebp();
 
 
 window.onload = function () {
@@ -23,12 +23,16 @@ window.onload = function () {
 
 
    // переключения языков для устройств без мыши
+
    const languageBtn = document.querySelector('.language-btn');
-   languageBtn.addEventListener('click', function (e) {
-      if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) { // Устройства без мыши
+   languageBtn.addEventListener('click', function () {
+      if (window.matchMedia("(pointer: coarse)").matches) { // Устройства со стилусом
          languageBtn.classList.toggle('active');
       }
    });
+
+   //Смена картинок при наведени на пункты меню
+
 
 
 

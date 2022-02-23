@@ -36,6 +36,15 @@
 	&__logo {
 		flex: 0 1 677px;
 		margin: 0 15px 0 0;
+		position: relative;
+		img {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 179px;
+			height: 100px;
+			object-fit: cover;
+		}
 	}
 
 	&__menu {
@@ -48,7 +57,7 @@
 	&__language {
 		@include adaptiveValueREM("margin-right", 50, 15, 1540, 768, 1);
 		position: relative;
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				.language-btn__select:last-child {
 					opacity: 1;
@@ -79,7 +88,7 @@
 		background-color: #232322;
 		transition: all 0.5s ease 0s;
 		margin: 0 15px 0 0;
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				background-color: #000000;
 			}
@@ -103,7 +112,7 @@
 		align-items: center;
 		border: 1px solid #232322;
 		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				border-color: $hoverColor;
 				span {
@@ -196,7 +205,7 @@
 		position: relative;
 		color: $darckColor;
 		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				color: $hoverColor;
 				&::after {
@@ -235,10 +244,10 @@
 		position: relative;
 		top: -2px;
 		&.ru {
-			background-image: url("/img/icons/russia.svg");
+			background-image: url("../img/icons/russia.svg");
 		}
 		&.es {
-			background-image: url("/img/icons/spain.svg");
+			background-image: url("../img/icons/spain.svg");
 		}
 	}
 	&__select {
@@ -295,7 +304,7 @@
 			left: 0;
 			transition: all 0.3s ease 0s;
 		}
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				color: $hoverColor;
 				&::after {
@@ -315,7 +324,7 @@
 		text-transform: uppercase;
 		margin: 0 0 em(15, 35) 0;
 		transition: color 0.3s ease 0s;
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				color: $hoverColor;
 			}
@@ -354,7 +363,7 @@
 		margin: 0 0 15px 0;
 		a {
 			transition: color 0.3s ease 0s;
-			@media (any-hover: hover) {
+			@media (pointer: fine) {
 				&:hover {
 					color: $hoverColor;
 				}
@@ -370,7 +379,7 @@
 		margin: 0 0 15px 0;
 		a {
 			transition: color 0.3s ease 0s;
-			@media (any-hover: hover) {
+			@media (pointer: fine) {
 				&:hover {
 					color: $hoverColor;
 				}
@@ -389,7 +398,7 @@
 		transition: color 0.3s ease 0s;
 		font-size: rem(20);
 		min-width: 20px;
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				color: $hoverColor;
 			}
@@ -399,7 +408,7 @@
 	&__instagram {
 		transition: color 0.3s ease 0s;
 		font-size: rem(20);
-		@media (any-hover: hover) {
+		@media (pointer: fine) {
 			&:hover {
 				color: $hoverColor;
 			}

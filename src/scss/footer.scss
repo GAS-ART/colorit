@@ -44,7 +44,7 @@
 
    &__service {
       @include adaptiveValueREM("margin-right", 224, 25, 1540, 992, 1);
-      min-width: 147px;
+      min-width: 149px;
       @media (max-width: $tablet) {
          margin-right: 0 !important;
          flex: 0 1 50%;
@@ -125,13 +125,14 @@
          transition: all 0.3s ease 0s;
          bottom: -3px;
          left: 0;
-         height: 1px;
+         height: 2px;
          background-color: $hoverColor;
          width: 0%;
       }
-      @media (any-hover: hover) {
+      @media (pointer: fine) {
          &:hover {
             color: $hoverColor;
+            font-weight: 500;
             &::after {
                width: 100%;
             }
@@ -164,13 +165,14 @@
          transition: all 0.3s ease 0s;
          bottom: -3px;
          left: 0;
-         height: 1px;
+         height: 2px;
          background-color: $hoverColor;
          width: 0%;
       }
-      @media (any-hover: hover) {
+      @media (pointer: fine) {
          &:hover {
             color: $hoverColor;
+            font-weight: 500;
             &::after {
                width: 100%;
             }
@@ -210,8 +212,9 @@
       a {
          color: #232322;
          transition: all 0.3s ease 0s;
-         @media (any-hover: hover) {
+         @media (pointer: fine) {
             &:hover {
+               font-weight: 500;
                color: $hoverColor;
             }
          }
@@ -232,8 +235,9 @@
       a {
          color: #232322;
          transition: all 0.3s ease 0s;
-         @media (any-hover: hover) {
+         @media (pointer: fine) {
             &:hover {
+               font-weight: 500;
                color: $hoverColor;
             }
          }
