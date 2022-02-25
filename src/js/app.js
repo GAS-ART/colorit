@@ -32,8 +32,94 @@ window.onload = function () {
    });
 
    //Смена картинок при наведени на пункты меню
+   const imgLinkBtn = document.querySelector(".service-menu__img-link");
+   const menuLink = document.querySelectorAll(".menu-service__item-link");
+   const serviceImage = document.querySelectorAll(".service-menu__img");
+   const shadowText = document.querySelector('.service-menu__shadow-text');
+   const shadowTextMobile = document.querySelector('.service-menu__shadow-text-mobile');
+   if (menuLink) {
+      menuLink.forEach((link) => {
+         if (window.matchMedia("(pointer: fine)").matches) {
+            link.addEventListener('mouseover', function (e) {
+               let targetImg = e.target.dataset.img;
+               let targetText = e.target.innerText;
+               serviceImage.forEach((img) => {
+                  img.classList.remove("active");
+                  if (img.dataset.img == targetImg) {
+                     img.classList.add("active");
+                     shadowText.textContent = targetText;
+                  }
+               })
+            });
+         } else if (window.matchMedia("(pointer: coarse)").matches) {
+            link.addEventListener("click", function (e) {
+               let targetImg = e.target.dataset.img;
+               let targetLink = e.target.dataset.link;
+               let targetText = e.target.innerText;
+               serviceImage.forEach((img) => {
+                  img.classList.remove("active");
+                  if (img.dataset.img == targetImg) {
+                     img.classList.add("active");
+                     imgLinkBtn.setAttribute('href', targetLink);
+                     shadowTextMobile.textContent = targetText;
+                  }
+               })
+               e.preventDefault();
+            });
+         }
+      });
+   }
+
+   //бегущая строка
 
 
+   function animationBanerText() {
+      let screenWidth = 0;
+      let textWidth = 0;
+      let spanQuantity = 0;
+      let banerWidth = 0;
+      const baner = document.querySelector('.baner');
+      const banerStart = document.querySelector('.baner__start');
+      const banerSpanStart = '<span class="baner__start">агентство эффективной рекламы</span>';
+      screenWidth = document.documentElement.clientWidth
+      textWidth = baner.clientWidth;
+      spanQuantity = Math.ceil(screenWidth / textWidth);
+      if (spanQuantity > 1) {
+         banerWidth = spanQuantity * textWidth + textWidth + 10;
+      } else {
+         banerWidth = (spanQuantity + 1) * textWidth + textWidth;
+      }
+      baner.style.width = banerWidth + "px";
+      for (let i = 0; i < spanQuantity; i++) {
+         banerStart.insertAdjacentHTML('afterEnd', banerSpanStart);
+      }
+
+      document.querySelectorAll('.baner__start').forEach((item) => {
+         item.animate([
+            { transform: 'translate(0, 0)' },
+            { transform: 'translate(-' + `${(textWidth)}` + 'px, 0)' }
+         ], {
+            duration: 10000,
+            iterations: Infinity
+         })
+      });
+   }
+
+   // $(window).on('resize', animationBanerText);
+   animationBanerText();
+
+
+
+
+   /* let shift = 0;
+    setInterval(() => {
+       banerElements.forEach((el) => {
+ 
+          shift -= 1
+          //  console.log(el)
+          el.style.transform = "translateX(" + shift + "px)";
+       });
+    }, 50);*/
 
 
    function documentActions(e) {

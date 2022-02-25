@@ -1,12 +1,60 @@
 .service-menu {
+   position: relative;
    margin: 210px 0 60px 0;
    @media (max-width: $mobile) {
       margin: 140px 0 20px 0;
    }
 
+   &__shadow-text {
+      position: absolute;
+      top: -7px;
+      right: 0;
+      max-width: 1138px;
+      max-height: 121px;
+      font-family: "Russo One";
+      @include adaptiveValueREM("font-size", 100, 46, 1540, 768, 1);
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #962e93;
+      opacity: 0.08;
+      @media (max-width: em(1350)) {
+         top: 10px;
+      }
+      @media (max-width: em(1100)) {
+         top: 20px;
+      }
+      @media (max-width: $tablet) {
+         top: 30px;
+      }
+      @media (max-width: $mobile) {
+         display: none;
+      }
+   }
+   &__shadow-text-mobile {
+      display: none;
+      @media (max-width: $mobile) {
+         position: absolute;
+         top: em(-50, 65);
+         display: block;
+         position: relative;
+         text-align: center;
+         max-width: 100%;
+         font-family: "Russo One";
+         line-height: 1.2;
+         font-size: rem(27);
+         @include adaptiveValueREM("font-size", 65, 27, 768, 320, 1);
+         text-transform: uppercase;
+         color: #962e93;
+         opacity: 0.08;
+      }
+   }
+
    &__body {
       display: flex;
-      @include adaptiveValueREM("height", 540, 340, 1540, 768, 1);
+      @media (min-width: 1539.8px) {
+         height: 540px !important;
+      }
+      @include adaptiveValueREM("height", 490, 340, 1539, 768, 1);
       position: relative;
       @media (max-width: $mobile) {
          flex-direction: column;
@@ -49,8 +97,13 @@
 
    &__images {
       flex: 0 1 auto;
-      @include adaptiveValueREM("width", 1155, 500, 1540, 768, 1);
-      @include adaptiveValueREM("height", 470, 270, 1540, 768, 1);
+      @media (min-width: 1539.9px) {
+         width: 1155px !important;
+         height: 470px !important;
+      }
+
+      @include adaptiveValueREM("width", 1100, 500, 1539, 768, 1);
+      @include adaptiveValueREM("height", 420, 270, 1539, 768, 1);
       @media (max-width: $mobile) {
          height: 180px !important;
          width: 100% !important;
@@ -66,6 +119,30 @@
          left: 0;
          width: 100%;
          height: 100%;
+         opacity: 0;
+         visibility: hidden;
+         transition: all 1.2s ease 0s;
+         &.active {
+            opacity: 1;
+            visibility: visible;
+         }
+      }
+   }
+   &__img-link {
+      display: none;
+      @media (pointer: coarse) {
+         display: block;
+         text-transform: uppercase;
+         font-family: Muller;
+         color: #fff;
+         font-size: rem(15);
+         font-weight: 500;
+         padding: rem(12) rem(16);
+         position: absolute;
+         z-index: 5;
+         bottom: 0;
+         right: 0;
+         background-color: $hoverColor;
       }
    }
 }
@@ -80,7 +157,7 @@
 
    &__item {
       &:not(:last-child) {
-         margin: 0 0 em(30, 25) 0;
+         @include adaptiveValueREM("margin-bottom", 30, 10);
       }
    }
 
@@ -115,7 +192,7 @@
       }
       @media (pointer: fine) {
          &:hover {
-            @include adaptiveValueREM("font-size", 50, 24);
+            @include adaptiveValueREM("font-size", 40, 24);
             color: $hoverColor;
             transform: translate(70px, 0);
             &::before {
@@ -134,3 +211,31 @@
    &__instagram {
    }
 }
+/*BANER*/
+//==================================================================
+.baner {
+   display: inline-block;
+   transform: translate(0, 0);
+   position: relative;
+   &__start {
+      position: relative;
+      display: inline-block;
+      font-family: Russo One;
+      font-size: 35px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #232322;
+      padding: 39px 0;
+      margin: 0 100px 0 0;
+      min-width: 987px;
+      letter-spacing: 10px;
+      margin-bottom: 100px;
+      @media (max-width: $mobile) {
+         font-size: 25px;
+         min-width: 787.4px;
+         margin: 0 50px 0 0;
+      }
+   }
+}
+/*BANER*/
+//==================================================================

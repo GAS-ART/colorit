@@ -12,27 +12,28 @@
       @@include('html/header.html', {})
       <main class="page">
          <section class="service-menu">
+            <div class="service-menu__shadow-text">наружная реклама</div>
             <div class="service-menu__container">
                <div class="service-menu__body">
                   <div class="service-menu__menu menu-service">
                      <nav class="menu-service__list">
                         <ul class="menu-service__items">
                            <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="outdoorAdvertising">наружная реклама</a></li>
+                                 data-img="outdoorAdvertising" data-link="#outdoorAdvertising">наружная реклама</a></li>
                            <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="polygraphy">полиграфия</a></li>
+                                 data-img="polygraphy" data-link="#polygraphy">полиграфия</a></li>
                            <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="identity">айдентика</a></li>
-                           <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="smm">смм</a>
+                                 data-img="identity" data-link="#identity">айдентика</a></li>
+                           <li class="menu-service__item"><a href="#" class="menu-service__item-link" data-img="smm"
+                                 data-link="#smm">смм</a>
                            </li>
                            <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="websiteDevelopment">создание сайтов</a></li>
+                                 data-img="websiteDevelopment" data-link="#websiteDevelopment">создание сайтов</a></li>
                            <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="uvPrinting">уф
+                                 data-img="uvPrinting" data-link="#uvPrinting">уф
                                  печать</a></li>
                            <li class="menu-service__item"><a href="#" class="menu-service__item-link"
-                                 data-img="printingOnClothes">печать на одежде</a></li>
+                                 data-img="printingOnClothes" data-link="#printingOnClothes">печать на одежде</a></li>
                         </ul>
                      </nav>
                      <div class="service-menu__social">
@@ -42,20 +43,28 @@
                         </a>
                      </div>
                   </div>
+
                   <div class="service-menu__images">
-                     <img src="@img/header/Outdoor_advertising.jpg" alt="Outdoor advertising"
-                        data-img="outdoorAdvertising">
-                     <img src="@img/header/polygraphy.jpg" alt="polygraphy" data-img="polygraphy">
-                     <img src="@img/header/identity.jpg" alt="identity" data-img="identity">
-                     <img src="@img/header/smm.jpg" alt="smm" data-img="smm">
-                     <img src="@img/header/website_development.png" alt="website development"
+                     <div class="service-menu__shadow-text-mobile">наружная реклама</div>
+                     <img class="service-menu__img active" src="@img/header/Outdoor_advertising.jpg"
+                        alt="Outdoor advertising" data-img="outdoorAdvertising">
+                     <img class="service-menu__img" src="@img/header/polygraphy.jpg" alt="polygraphy"
+                        data-img="polygraphy">
+                     <img class="service-menu__img" src="@img/header/identity.jpg" alt="identity" data-img="identity">
+                     <img class="service-menu__img" src="@img/header/smm.jpg" alt="smm" data-img="smm">
+                     <img class="service-menu__img" src="@img/header/website_development.png" alt="website development"
                         data-img="websiteDevelopment">
-                     <img src="@img/header/UV_printing.jpg" alt="UV printing" data-img="uvPrinting">
-                     <img src="@img/header/printing_on_clothes.jpg" alt="printing on clothes"
+                     <img class="service-menu__img" src="@img/header/UV_printing.jpg" alt="UV printing"
+                        data-img="uvPrinting">
+                     <img class="service-menu__img" src="@img/header/printing_on_clothes.jpg" alt="printing on clothes"
                         data-img="printingOnClothes">
+                     <a href="#" class="service-menu__img-link">Подробнее</a>
                   </div>
                </div>
             </div>
+         </section>
+         <section class="baner">
+            <span class="baner__start">агентство эффективной рекламы</span>
          </section>
       </main>
       @@include('html/footer.html', {})
