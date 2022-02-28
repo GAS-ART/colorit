@@ -215,27 +215,101 @@
 //==================================================================
 .baner {
    display: inline-block;
-   transform: translate(0, 0);
    position: relative;
+   margin: 0 0 100px 0;
+   @media (max-width: $mobile) {
+      margin: 0 0 60px 0;
+   }
+   &::before {
+      content: "";
+      width: 50vw;
+      height: 120px;
+      background-color: #fafafaed;
+      position: absolute;
+      @media (max-width: $mobile) {
+         height: 80px;
+      }
+   }
    &__start {
       position: relative;
       display: inline-block;
       font-family: Russo One;
       font-size: 35px;
       line-height: 1.2;
+      margin: 0 100px 0 0;
       text-transform: uppercase;
       color: #232322;
       padding: 39px 0;
-      margin: 0 100px 0 0;
       min-width: 987px;
       letter-spacing: 10px;
-      margin-bottom: 100px;
       @media (max-width: $mobile) {
          font-size: 25px;
          min-width: 787.4px;
-         margin: 0 50px 0 0;
+         padding: 25px 0;
+         margin: 0 60px 0 0;
       }
    }
 }
 /*BANER*/
+//==================================================================
+
+/*ABOUT*/
+//==================================================================
+
+.about {
+   &__container {
+   }
+
+   &__body {
+      position: relative;
+      margin: 0 0 100px rem(136);
+      @media (max-width: $mobile) {
+         margin: 0 0 60px 0;
+      }
+   }
+
+   &__about {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include adaptiveValueREM("font-size", 100, 50);
+      line-height: 1.205;
+      color: $hoverColor;
+      opacity: 0.15;
+      text-transform: uppercase;
+   }
+
+   &__text {
+      position: relative;
+      display: flex;
+      @media (max-width: $mobile) {
+         flex-direction: column;
+         padding-top: rem(94);
+      }
+      p {
+         width: rem(108);
+         margin-top: rem(70);
+         margin-left: rem(58);
+         &:not(:last-child) {
+            margin-right: rem(40);
+         }
+         font-family: "Muller";
+         @include adaptiveValueREM("font-size", 20, 16);
+         @include adaptiveValueREM("width", 550, 270);
+         line-height: 1.8;
+         span {
+            font-weight: 700;
+         }
+         @media (max-width: $mobile) {
+            margin-left: 20px;
+            margin-right: 0;
+            &:not(:last-child) {
+               margin-bottom: 10px;
+            }
+            margin-top: 0;
+         }
+      }
+   }
+}
+/*ABOUT*/
 //==================================================================
