@@ -104,22 +104,7 @@ window.onload = function () {
          })
       });
    }
-
-   // $(window).on('resize', animationBanerText);
    animationBanerText();
-
-
-
-
-   /* let shift = 0;
-    setInterval(() => {
-       banerElements.forEach((el) => {
- 
-          shift -= 1
-          //  console.log(el)
-          el.style.transform = "translateX(" + shift + "px)";
-       });
-    }, 50);*/
 
 
    function documentActions(e) {
@@ -147,11 +132,6 @@ window.onload = function () {
          entries[0].target.classList.add('_scroll')
       }
    }
-
-
-
-
-
 
 }
 

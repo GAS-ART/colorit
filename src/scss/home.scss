@@ -528,13 +528,13 @@
    }
    &__images {
       display: flex;
-      @media (max-width: $mobile) {
+      @media (max-width: $tablet) {
          flex-direction: column;
       }
    }
    &__row {
       flex: 1 1 50%;
-      @media (max-width: $mobile) {
+      @media (max-width: $tablet) {
          display: flex;
          flex-direction: column;
          flex: 1 1 100%;
@@ -544,6 +544,7 @@
    &__body {
       position: relative;
       padding: 0 0 57.292% 0;
+      //  transition: all 0.3s ease 0s;
       @media (max-width: $mobile) {
          min-height: 286px;
       }
@@ -556,27 +557,99 @@
          object-fit: fill;
          cursor: pointer;
       }
+
+      &:hover {
+         .cases__info {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+         }
+      }
    }
 
    &__info {
+      transition: all 1s ease 0s;
       position: absolute;
-      display: none;
+      top: 0px;
+      left: 0px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
    }
 }
 .info-cases {
    &__body {
+      background-color: #232322;
+      opacity: 0.9;
+      flex: 1 1 auto;
+      margin: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: auto;
    }
 
    &__tittle {
+      @include adaptiveValueREM("font-size", 30, 18);
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin: rem(101) 0 rem(30) 0;
+      @media (max-width: em(1500)) {
+         margin: rem(25) 0 rem(10) 0;
+      }
+      @media (max-width: $tablet) {
+         margin: rem(101) 0 rem(30) 0;
+      }
+      @media (max-width: $mobile) {
+         margin: rem(25) 0 rem(10) 0;
+      }
    }
 
    &__items {
+      width: 416px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: rem(30);
+      @media (max-width: em(1090)) {
+         margin-bottom: rem(15);
+      }
+      @media (max-width: $tablet) {
+         margin-bottom: rem(30);
+      }
+      @media (max-width: $mobile) {
+         margin-bottom: rem(15);
+         width: 260px;
+      }
    }
 
    &__item {
+      align-self: flex-start;
+      font-family: "Montserrat";
+      @include adaptiveValueREM("font-size", 18, 14);
+      color: #ffffff;
+      line-height: 1.8;
    }
 
    &__btn {
+      font-family: "Muller";
+      color: #232322;
+      font-size: 16px;
+      font-weight: 500;
+      padding: rem(17) rem(35);
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      @media (max-width: $mobile) {
+         font-size: 15px;
+         padding: rem(12) rem(35);
+         margin-bottom: 5px;
+      }
    }
 }
 /*CASES*/
