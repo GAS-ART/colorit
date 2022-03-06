@@ -6,9 +6,12 @@
 //import { isWebp } from './modules/functions.js';
 
 //isWebp();
+import './modules/sliders.js';
 
 
 window.onload = function () {
+
+
 
    document.addEventListener('click', documentActions);
 
@@ -71,8 +74,6 @@ window.onload = function () {
    }
 
    //бегущая строка
-
-
    function animationBanerText() {
       let screenWidth = 0;
       let textWidth = 0;
@@ -106,6 +107,23 @@ window.onload = function () {
    }
    animationBanerText();
 
+   //Цвет логотипов компаний при наведении
+   const logosBlack = document.querySelectorAll('.black-image > img');
+
+   logosBlack.forEach((logo) => {
+      logo.addEventListener('mouseover', function (e) {
+         e.target.closest('.black-image').nextElementSibling.firstElementChild.classList.add('active');
+      });
+   });
+
+   logosBlack.forEach((logo) => {
+      logo.addEventListener('mouseout', function (e) {
+         e.target.closest('.black-image').nextElementSibling.firstElementChild.classList.remove('active');
+      });
+   });
+
+
+
 
    function documentActions(e) {
       //убираем меню бургер
@@ -120,6 +138,7 @@ window.onload = function () {
       }
    }
 
+   //Фиксация header
    const headerElement = document.querySelector('.header');
 
    const headerObserver = new IntersectionObserver(watchHeader);

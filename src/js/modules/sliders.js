@@ -1,6 +1,3 @@
-import Swiper from "swiper"; // npm i swiper
-
-
 function initSliders() {
    // Перечень слайдеров
    if (document.querySelector('.swiper')) {
@@ -17,49 +14,51 @@ function initSliders() {
          */
          observer: true,
          observeParents: true,
-         slidesPerView: 1,
-         spaceBetween: 0,
-         autoHeight: true,
+         slidesPerView: 6,
+         slidesPerGroup: 1,
+         slidesPerColumn: 1,
+         spaceBetween: 120.5,
+         //  autoHeight: true,
          speed: 800,
-         //touchRatio: 0,
-         //simulateTouch: false,
+         //touchRatio: 1,
+         simulateTouch: true,
          //loop: true,
          //preloadImages: false,
          //lazy: true,
          // Dotts
-         //pagination: {
-         //	el: '.slider-quality__pagging',
-         //	clickable: true,
-         //},
+         pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+         },
          // Arrows
          navigation: {
-            nextEl: '.about__more .more__item_next',
-            prevEl: '.about__more .more__item_prev',
+            nextEl: '.swiper-button-prev',
+            prevEl: '.swiper-button-next',
          },
-         /*
+
          breakpoints: {
             320: {
-               slidesPerView: 1,
-               spaceBetween: 0,
-               autoHeight: true,
+               slidesPerView: 4,
+               spaceBetween: 20,
+               //     autoHeight: true,
             },
             768: {
-               slidesPerView: 2,
+               slidesPerView: 4,
                spaceBetween: 20,
             },
             992: {
-               slidesPerView: 3,
-               spaceBetween: 20,
-            },
-            1268: {
                slidesPerView: 4,
-               spaceBetween: 30,
+               spaceBetween: 40,
+            },
+            1300: {
+               slidesPerView: 5,
+            },
+            1700: {
+               slidesPerView: 6,
+               spaceBetween: 120.5,
             },
          },
-         */
-         on: {
 
-         }
       });
    }
 }
@@ -69,6 +68,19 @@ function initSliders() {
 window.addEventListener("load", function (e) {
    // Запуск инициализации слайдеров
    initSliders();
+
+   /*   const prevBtn = document.querySelector('.swiper-button-prev');
+      const nextBtn = document.querySelector('.swiper-button-next');
+   
+   
+      prevBtn.addEventListener('click', () => {
+         let slideActive = document.querySelector('.swiper-slide-prev');
+         slideActive.classList.add('prev');
+      });
+      nextBtn.addEventListener('click', () => {
+         let slideActive = document.querySelector('.swiper-slide-prev');
+         slideActive.classList.remove('prev');
+      });*/
    // Запуск инициализации скролла на базе слайдера (по классу swiper_scroll)
    //initSlidersScroll();
 });
