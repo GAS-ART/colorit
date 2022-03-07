@@ -164,7 +164,7 @@
    &__item-link {
       display: inline-block;
       font-family: Russo One;
-      @include adaptiveValueREM("font-size", 25, 16);
+      @include adaptiveValueREM("font-size", 25, 20);
       line-height: 1.2;
       text-transform: uppercase;
       color: #4f4f4f;
@@ -691,14 +691,6 @@
    align-items: center;
    justify-content: center;
    position: relative;
-   /*&:nth-child(4) {
-      img {
-         object-fit: cover;
-         @media (max-width: $mobile) {
-            object-fit: contain;
-         }
-      }
-   }*/
    img {
       object-fit: contain;
       width: 100%;
@@ -709,14 +701,42 @@
          height: 100%;
       }
    }
-   /* @media (pointer: fine) {
-      &:hover {
-         .color-image {
-            opacity: 1;
-            visibility: visible;
+   &:nth-child(2) {
+      img {
+         width: 90%;
+         height: 90%;
+      }
+      .color-image {
+         img {
+            transition: all 1s ease 0s;
+            width: 90%;
+            height: 90%;
          }
       }
-   }*/
+   }
+   &:nth-child(3),
+   &:nth-child(7),
+   &:nth-child(8) {
+      img {
+         width: 115%;
+         height: 115%;
+      }
+   }
+   &:nth-child(4),
+   &:nth-child(6),
+   &:nth-child(9),
+   &:nth-child(11) {
+      img {
+         width: 90%;
+         height: 90%;
+      }
+      .color-image {
+         img {
+            width: 90%;
+            height: 90%;
+         }
+      }
+   }
 }
 .black-image {
    position: absolute;
@@ -742,10 +762,9 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   transition: all 0.5s ease 0s;
    pointer-events: none;
    img {
-      transition: all 0.3s ease 0s;
+      transition: all 0.5s ease 0s;
       opacity: 0;
       visibility: hidden;
       position: relative;
@@ -797,4 +816,84 @@
 }
 
 /*SLIDER*/
+//==================================================================
+
+/*EXPERIENCE*/
+//==================================================================
+
+.experience {
+   margin-bottom: 100px;
+   @media (max-width: $mobile) {
+      margin-bottom: 60px;
+   }
+
+   &__container {
+   }
+
+   &__body {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-left: rem(104);
+      @media (max-width: $tablet) {
+         flex-direction: column;
+         align-items: flex-start;
+         margin-left: 0;
+      }
+   }
+
+   &__text {
+      margin-right: rem(77);
+      flex: 0 1 666px;
+      @include adaptiveValueREM("font-size", 60, 35);
+      line-height: 1.2;
+      color: #232322;
+      text-transform: uppercase;
+      min-width: 375px;
+      @media (max-width: $tablet) {
+         min-width: 290px;
+         margin-right: 0;
+         margin-bottom: 15px;
+         flex: 1 1 auto;
+      }
+   }
+
+   &__callback {
+      flex: 0 1 694px;
+      min-width: 430px;
+      @media (max-width: $tablet) {
+         min-width: 290px;
+         flex: 1 1 auto;
+      }
+   }
+}
+.callback {
+   &__text {
+      font-family: "Muller";
+      @include adaptiveValueREM("font-size", 30, 20);
+      color: $mainColor;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      @media (max-width: $mobile) {
+         line-height: 1.5;
+         margin-bottom: 15px;
+      }
+   }
+
+   &__btn {
+      font-family: "Muller";
+      width: 198px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $hoverColor;
+      color: #ffffff;
+      font-weight: 500;
+      line-height: 1;
+      cursor: pointer;
+   }
+}
+
+/*EXPERIENCE*/
 //==================================================================

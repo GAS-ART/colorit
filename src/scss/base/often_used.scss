@@ -13,3 +13,10 @@
    width: 100%;
    text-align: center;
 }
+.tittle-opacity {
+   @include adaptiveValueREM("font-size", 100, 29);
+   line-height: 1.2;
+   color: $hoverColor;
+   opacity: 0.1;
+   text-transform: uppercase;
+}
