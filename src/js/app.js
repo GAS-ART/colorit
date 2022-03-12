@@ -131,6 +131,8 @@ window.onload = function () {
    const popupBtn = document.querySelectorAll('.popup-btn');
    const popup = document.querySelector('.popup');
    const popupClose = document.querySelectorAll('.popup__close');
+   const confitmBtn = document.querySelector('.confirm-button');
+
    popupBtn.forEach((item) => {
       item.addEventListener('click', function (e) {
          e.preventDefault();
@@ -144,9 +146,18 @@ window.onload = function () {
          closePopup(e.target.closest('.popup'));
       });
    });
+   confitmBtn.addEventListener('click', function () {
+      closePopup(popup);
+   })
    function closePopup(popup) {
       popup.classList.remove('open');
+      popup.classList.remove('send');
       body.classList.remove('lock');
+      $(".email-error").html('');
+      $(".name-error").html('');
+      $(".phone-error").html('');
+      $(".file-error").html('');
+      $(".service-error").html('');
    }
 
    function documentActions(e) {
@@ -162,8 +173,7 @@ window.onload = function () {
       }
       //Убираем popup
       if (!e.target.closest('.popup__content') && !e.target.classList.contains('popup-btn')) {
-         popup.classList.remove('open');
-         body.classList.remove('lock');
+         closePopup(popup);
       }
    }
 
@@ -185,6 +195,61 @@ window.onload = function () {
    $('.select-form').select2({
       placeholder: 'Выберету услугу',
       minimumResultsForSearch: -1,
+   });
+
+   // Отпарвка данных из формы
+   $("#bookingform").submit(function (event) {
+      event.preventDefault();
+      $.ajax({
+         type: 'POST',
+         url: 'http://127.0.0.1:8000/feedback',
+         data: new FormData(this),
+         contentType: false,
+         cache: false,
+         processData: false,
+         success: function () {
+            $(".email-error").html('');
+            $(".name-error").html('');
+            $(".phone-error").html('');
+            $(".file-error").html('');
+            $(".service-error").html('');
+            $(".popup").addClass("send");
+            const formBooking = document.querySelector('#bookingform');
+            formBooking.reset();
+            $(".select-form").select2("destroy");
+            $('.select-form').select2({
+               placeholder: 'Выберету услугу',
+               minimumResultsForSearch: -1,
+            });
+         },
+         error: function (err) {
+            if (err.responseJSON.errors?.email) {
+               $(".email-error").html(err.responseJSON.errors.email[0]);
+            } else {
+               $(".email-error").html('');
+            }
+            if (err.responseJSON.errors?.name) {
+               $(".name-error").html(err.responseJSON.errors.name[0]);
+            } else {
+               $(".name-error").html('');
+            }
+            if (err.responseJSON.errors?.phone) {
+               $(".phone-error").html(err.responseJSON.errors.phone[0]);
+            } else {
+               $(".phone-error").html('');;
+            }
+            if (err.responseJSON.errors?.filename) {
+               $(".file-error").html(err.responseJSON.errors.filename[0]);
+            } else {
+               $(".file-error").html('');
+            }
+            if (err.responseJSON.errors?.service) {
+               $(".service-error").html(err.responseJSON.errors.service[0]);
+            } else {
+               $(".service-error").html('');
+            }
+         }
+      });
    });
 
 }
