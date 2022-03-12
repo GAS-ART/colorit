@@ -28,8 +28,12 @@ window.onload = function () {
    // переключения языков для устройств без мыши
 
    const languageBtn = document.querySelector('.language-btn');
-   languageBtn.addEventListener('click', function () {
+   // const languageLink = document.querySelectorAll('.language-btn__select > a');
+   languageBtn.addEventListener('click', function (e) {
       if (window.matchMedia("(pointer: coarse)").matches) { // Устройства со стилусом
+         if (!languageBtn.classList.contains('active')) {
+            e.preventDefault()
+         }
          languageBtn.classList.toggle('active');
       }
    });
@@ -122,8 +126,28 @@ window.onload = function () {
       });
    });
 
-
-
+   //popup
+   const body = document.querySelector('#body');
+   const popupBtn = document.querySelectorAll('.popup-btn');
+   const popup = document.querySelector('.popup');
+   const popupClose = document.querySelectorAll('.popup__close');
+   popupBtn.forEach((item) => {
+      item.addEventListener('click', function (e) {
+         e.preventDefault();
+         popup.classList.add('open');
+         body.classList.add('lock');
+      });
+   });
+   popupClose.forEach((item) => {
+      item.addEventListener('click', function (e) {
+         e.preventDefault();
+         closePopup(e.target.closest('.popup'));
+      });
+   });
+   function closePopup(popup) {
+      popup.classList.remove('open');
+      body.classList.remove('lock');
+   }
 
    function documentActions(e) {
       //убираем меню бургер
@@ -135,6 +159,11 @@ window.onload = function () {
       //Убираем отображение языков
       if (!e.target.closest('.language-btn')) {
          languageBtn.classList.remove('active');
+      }
+      //Убираем popup
+      if (!e.target.closest('.popup__content') && !e.target.classList.contains('popup-btn')) {
+         popup.classList.remove('open');
+         body.classList.remove('lock');
       }
    }
 
@@ -152,8 +181,10 @@ window.onload = function () {
       }
    }
 
+   //Стилизация Select
+   $('.select-form').select2({
+      placeholder: 'Выберету услугу',
+      minimumResultsForSearch: -1,
+   });
+
 }
-
-
-
-

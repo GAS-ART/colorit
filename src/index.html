@@ -7,7 +7,7 @@
 "ogDescription": "Описание страницы для месенджеров"
 })
 
-<body>
+<body id="body">
    <div class="wrapper">
       @@include('html/header.html', {})
       <main class="page">
@@ -395,7 +395,8 @@
                      <div class="callback__text">
                         <p>Оставляй заявку и мы перезвоним</p>
                      </div>
-                     <div class="callback__btn"><button type="button">Оставить заявку</button></div>
+                     <div class="callback__btn popup-btn"><button type="button" class="popup-btn">Оставить
+                           заявку</button></div>
                   </div>
                </div>
 
@@ -404,7 +405,7 @@
       </main>
       @@include('html/footer.html', {})
    </div>
-   <!--  @@include('html/popup.html', {})-->
+   @@include('html/popup.html', {})
 </body>
 
 </html>

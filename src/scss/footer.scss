@@ -35,7 +35,7 @@
          margin-right: 0 !important;
          width: 100%;
          margin-bottom: 25px;
-         text-align: center;
+         //  text-align: center;
       }
       @media (max-width: $mobile) {
          flex-direction: column;
@@ -56,6 +56,9 @@
 
    &__tittle {
       font-size: rem(18);
+      @media (max-width: $mobile) {
+         font-size: rem(20);
+      }
       line-height: 22px;
       text-transform: uppercase;
       color: #000000;
@@ -71,7 +74,7 @@
    &__location {
       display: flex;
       @media (max-width: $tablet) {
-         text-align: center;
+         // text-align: center;
       }
       @media (max-width: $mobile) {
          flex-direction: column;
@@ -117,6 +120,9 @@
       position: relative;
       font-family: Muller;
       font-size: rem(16);
+      @media (max-width: $mobile) {
+         font-size: rem(18);
+      }
       line-height: 16px;
       transition: all 0.3s ease 0s;
       &::after {
@@ -157,6 +163,9 @@
       position: relative;
       font-family: Muller;
       font-size: rem(16);
+      @media (max-width: $mobile) {
+         font-size: rem(18);
+      }
       line-height: 16px;
       transition: all 0.3s ease 0s;
       &::after {
@@ -185,6 +194,9 @@
       p {
          font-family: Muller;
          font-size: rem(16);
+         @media (max-width: $mobile) {
+            font-size: rem(18);
+         }
          line-height: 16px;
          &:first-child {
             color: #828282;
@@ -202,6 +214,9 @@
    &__phone {
       font-family: Muller;
       font-size: rem(16);
+      @media (max-width: $mobile) {
+         font-size: rem(18);
+      }
       line-height: 16px;
       p {
          &:first-child {
@@ -225,6 +240,9 @@
    &__email {
       font-family: Muller;
       font-size: rem(16);
+      @media (max-width: $mobile) {
+         font-size: rem(18);
+      }
       line-height: 16px;
       p {
          &:first-child {
@@ -248,10 +266,13 @@
    &__text {
       font-family: Muller;
       font-size: rem(16);
+      @media (max-width: $mobile) {
+         font-size: rem(18);
+      }
       line-height: 1.8;
-      text-align: right;
+      //   text-align: right;
       @media (max-width: $tablet) {
-         text-align: center;
+         //    text-align: center;
          margin-bottom: 15px;
       }
    }
@@ -261,8 +282,11 @@
       justify-content: flex-end;
       color: $hoverColor;
       font-size: rem(20);
+      @media (max-width: $mobile) {
+         font-size: rem(22);
+      }
       @media (max-width: $tablet) {
-         justify-content: center;
+         justify-content: flex-start;
       }
    }
 

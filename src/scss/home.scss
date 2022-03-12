@@ -141,7 +141,7 @@
          position: absolute;
          z-index: 5;
          bottom: 0;
-         right: 0;
+         left: 0;
          background-color: $hoverColor;
       }
    }
@@ -751,6 +751,9 @@
    img {
       position: relative;
    }
+   @media (max-width: $tablet) {
+      display: none;
+   }
 }
 
 .color-image {
@@ -770,6 +773,10 @@
       position: relative;
       pointer-events: none;
       &.active {
+         opacity: 1;
+         visibility: visible;
+      }
+      @media (max-width: $tablet) {
          opacity: 1;
          visibility: visible;
       }

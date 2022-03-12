@@ -1,29 +1,54 @@
 <div id="popup" class="popup">
    <div class="popup__body">
       <div class="popup__content">
-         <a href="#" class="popup__close close-popup">X</a>
-         <div class="popup__title">
-            <h4>ФОРМА ЗАКАЗА ОБРАТНОГО ЗВОНКА</h4>
-         </div>
-         <div class="popup__text">
-            <form class="popup__form" id="test" name="popupform" method="post" action="#" autocomplete="on"
-               onsubmit="return validate(this)">
-               <div class="contacts-form__item data popup-data">
-                  <input class="data__text-field" type="text" name="name" placeholder="Как к Вам обращаться?">
-                  <div class="data__error">
-                     <p class="text-field-name">Это поле не должно быть пусты</p>
-                  </div>
+         <a href="#" class="popup__close close-popup"></a>
+         <div class="popup__row">
+            <div class="popup__form">
+               <div class="popup__title">
+                  <h4>Заполните<br> форму</h4>
                </div>
-               <div class="contacts__phone popup-phone">
-                  <input class="phone" type="text" name="phone" placeholder="+7 (__) __ - __ - __">
-                  <p class="text-field-phone">Номер телефона должен содержать 10 цифр!</p>
+               <div class="popup__text">
+                  <form class="form" id="test" name="popupform" method="post" action="#" autocomplete="on" onsubmit="">
+                     <div class="contacts-form__item data popup-data">
+                        <input class="data__text-field" type="text" name="name" placeholder="Ваше имя">
+                        <div class="data__error">
+                           <p class="text-field-name">Это поле не должно быть пусты</p>
+                        </div>
+                     </div>
+                     <div class="contacts-form__item data popup-phone">
+                        <input class="phone" type="text" name="phone" placeholder="Номер телефона">
+                        <p class="data__error">Номер телефона должен содержать 10 цифр!</p>
+                     </div>
+                     <div class="contacts-form__item data popup-email">
+                        <input class="email" type="text" name="email" placeholder="Эл. почта">
+                        <p class="data__error">Это поле не должно быть пусты</p>
+                     </div>
+                     <div class="contacts-form__item data popup-service">
+                        <select class="select-form" name="service">
+                           <option value=""></option>
+                           <option value="Наружная Реклама">Наружная Реклама</option>
+                           <option value="Полиграфия">Полиграфия</option>
+                           <option value="Айдентика">Айдентика</option>
+                           <option value="Смм">Смм</option>
+                           <option value="Создание Сайтов">Создание Сайтов</option>
+                           <option value="УФ печать">УФ печать</option>
+                           <option value="Печать на Одежде">Печать на Одежде</option>
+                        </select>
+                     </div>
+                     <div class="contacts-form__item data popup-text-area">
+                        <textarea name="textarea" placeholder="Ваш комментарий"></textarea>
+                     </div>
+                     <div class="contacts-form__item data popup-download">
+                        <a href="#">Прикрепить файл</a>
+                     </div>
+                     <div class="popup__button">
+                        <button class="submit" type="submit">Оставить заявку</button>
+                     </div>
+                  </form>
                </div>
-               <div class="popup__button">
-                  <div class="button">
-                     <input class="submit" type="submit" value="ЗАКАЗАТЬ ЗВОНОК">
-                  </div>
-               </div>
-            </form>
+            </div>
+            <div class="popup__image">
+            </div>
          </div>
       </div>
    </div>

@@ -7,9 +7,6 @@
 		}
 		.header__wraper {
 			min-height: 80px;
-			@media (max-width: $mobile) {
-				min-height: 50px;
-			}
 		}
 	}
 	&__wraper {
@@ -61,6 +58,10 @@
 	&__language {
 		@include adaptiveValueREM("margin-right", 50, 15, 1540, 768, 1);
 		position: relative;
+		a {
+			display: flex;
+			align-items: center;
+		}
 		@media (pointer: fine) {
 			&:hover {
 				.language-btn__select:last-child {
