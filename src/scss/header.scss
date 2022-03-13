@@ -275,10 +275,12 @@
 }
 
 .burger {
+	overflow: auto;
 	&__body {
 		height: inherit;
 		color: #ffffff;
 		margin: 140px 0 0 50px;
+
 		@media (max-width: em(1025)) {
 			margin: 70px 0 0 50px;
 		}
@@ -328,15 +330,96 @@
 		line-height: math.div(42, 35);
 		text-transform: uppercase;
 		margin: 0 0 em(15, 35) 0;
+		&:nth-child(3) {
+			.menu-burger__item-link {
+				position: relative;
+				display: inline-block;
+				width: 180px;
+				@media (max-width: $mobileSmall) {
+					width: 140px;
+				}
+				@media (pointer: fine) {
+					&:hover {
+						span {
+							&::before {
+								background-color: $hoverColor;
+							}
+							&::after {
+								background-color: $hoverColor;
+							}
+						}
+					}
+				}
+				&.active {
+					span {
+						&::before {
+							transform: rotate(-45deg);
+						}
+						&::after {
+							transform: rotate(45deg);
+						}
+					}
+				}
+				span {
+					height: 20px;
+					width: 25px;
+					display: inline-block;
+					position: relative;
+					top: 30%;
+					right: -10px;
+					pointer-events: none;
+					@media (max-width: $tablet) {
+						top: 40%;
+					}
+					@media (max-width: $mobileSmall) {
+						top: 50%;
+					}
+					&::before {
+						content: "";
+						width: 10px;
+						height: 1px;
+						background-color: #ffffff;
+						position: absolute;
+						right: 11px;
+						top: 30%;
+						transform: rotate(45deg);
+						transition: all 0.3s ease 0s;
+						@media (max-width: $tablet) {
+							top: 40%;
+						}
+						@media (max-width: $mobileSmall) {
+							top: 50%;
+						}
+					}
+					&::after {
+						content: "";
+						width: 10px;
+						height: 1px;
+						background-color: #ffffff;
+						position: absolute;
+						right: 4px;
+						top: 30%;
+						transform: rotate(-45deg);
+						transition: all 0.3s ease 0s;
+						@media (max-width: $tablet) {
+							top: 40%;
+						}
+						@media (max-width: $mobileSmall) {
+							top: 50%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__item-link {
 		transition: color 0.3s ease 0s;
 		@media (pointer: fine) {
 			&:hover {
 				color: $hoverColor;
 			}
 		}
-	}
-
-	&__item-link {
 	}
 }
 .contacts-burger {
@@ -417,6 +500,53 @@
 			&:hover {
 				color: $hoverColor;
 			}
+		}
+	}
+}
+
+.burger-service-menu {
+	&__list {
+		margin: 15px 0 15px 0px;
+		padding: 10px 0 10px 10px;
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__item-link {
+		position: relative;
+		@include adaptiveValueREM("font-size", 23, 16);
+		color: #ffffff;
+		@media (pointer: fine) {
+			&:hover {
+				color: $hoverColor;
+				&::after {
+					width: 100%;
+				}
+			}
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 43%;
+			left: -10px;
+			height: 2px;
+			background-color: #ffffff;
+			width: 5px;
+		}
+		&::after {
+			content: "";
+			height: 2px;
+			width: 0;
+			background-color: $hoverColor;
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			cursor: auto;
+			transition: all 0.3s ease 0s;
 		}
 	}
 }

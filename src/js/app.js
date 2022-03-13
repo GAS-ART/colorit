@@ -23,6 +23,13 @@ window.onload = function () {
       menuBody.classList.toggle('active');
       e.preventDefault;
    });
+   $('.burger-service-menu').next().slideUp();
+   $('.burger-service-menu').click(function (e) {
+      e.preventDefault();
+      $(e.target).next().slideToggle(300);
+      $(e.target).toggleClass('active');
+   });
+
 
 
    // переключения языков для устройств без мыши
@@ -196,6 +203,7 @@ window.onload = function () {
       placeholder: 'Выберету услугу',
       minimumResultsForSearch: -1,
    });
+
 
    // Отпарвка данных из формы
    $("#bookingform").submit(function (event) {

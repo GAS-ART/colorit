@@ -57,9 +57,6 @@
    transform: translate(0px, -300px);
    display: flex;
    justify-content: center;
-   @media (max-width: $tablet) {
-      //    flex: 1 1 auto;
-   }
 }
 .popup__close {
    position: absolute;
@@ -96,16 +93,15 @@
    position: relative;
    @media (max-width: $tablet) {
       flex-direction: column;
-      // flex: 1 1 auto;
       max-height: unset;
    }
 }
 .popup__form {
-   padding: 20px 50px 34px 50px;
+   padding: 10px 50px 10px 50px;
    background-color: #ffffff;
    position: relative;
    @media (max-width: $tablet) {
-      padding: 42px 15px 40px 15px;
+      padding: 5px 15px 10px 15px;
       order: 2;
    }
 }
@@ -151,7 +147,7 @@
       }
       resize: none;
    }
-   margin-bottom: 13px;
+   margin-bottom: 10px;
 }
 
 .select2-selection {
@@ -180,9 +176,9 @@
 }
 .popup__title {
    text-align: center;
-   margin-bottom: 27px;
+   margin-bottom: 15px;
    @media (max-width: $mobile) {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
    }
 }
 .popup__title h4 {
@@ -248,7 +244,7 @@
       position: absolute;
       width: 30px;
       height: 30px;
-      background-image: url("../../../public/img/icons/donwload.svg");
+      background-image: url("@img/icons/donwload.svg");
       background-repeat: no-repeat;
       margin-right: 10px;
       z-index: 300;
@@ -270,6 +266,10 @@
    font-family: "Muller";
    text-align: left;
    color: red;
+   min-height: 15px;
+   @media (max-width: $mobileSmall) {
+      min-height: unset;
+   }
 }
 /*----POP-UP-JS----*/
 .popup.open .popup__content {
@@ -333,7 +333,7 @@
    position: relative;
    width: 335px;
    flex: 0 0 335px;
-   background-image: url("../../../public/img/service/Outdoor_advertising_popup-form.jpg");
+   background-image: url("@img/service/Outdoor_advertising_popup-form.jpg");
    background-repeat: no-repeat;
    background-size: contain;
    @media (max-width: $tablet) {
@@ -342,10 +342,13 @@
       order: 1;
       background-size: contain;
       background-position: center;
-      background-image: url("../../../public/img/service/Outdoor_advertising_popup-form-small.jpg");
+      background-image: url("@img/service/Outdoor_advertising_popup-form-small.jpg");
    }
    @media (max-width: $mobile) {
       background-size: 100% 100%;
+   }
+   @media (max-width: $mobileSmall) {
+      flex: 1 1 180px;
    }
 }
 /*----POP-UP----*/
